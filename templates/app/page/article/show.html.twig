@@ -8,7 +8,7 @@
     <p><strong>Описание:</strong></p>
     <p>{{ article.description }}</p>
 
-    <p><strong>Просмотров:</strong> {{ article.views }}</p>
+    <p><strong>Просмотров:</strong> {{ format_views(article.views) }}</p>
     <p><strong>Дата создания:</strong> {{ article.createdAt|date('d.m.Y H:i') }}</p>
 
     {% if article.isActive %}
