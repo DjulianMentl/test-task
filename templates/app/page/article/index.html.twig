@@ -1,0 +1,21 @@
+{% extends 'app/base.html.twig' %}
+
+{% block title %}Статьи{% endblock %}
+
+{% block body %}
+    <h1>Статьи</h1>
+
+    {% if articles is not empty %}
+        <ul>
+            {% for article in articles %}
+                <li>
+                    <h2><a href="{{ path('app_article_show', { 'slug': article.slug }) }}">{{ article.title }}</a></h2>
+                    <p>Просмотров: {{ article.views }}</p>
+                    <p>Дата создания: {{ article.createdAt|date('d.m.Y H:i') }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Чтобы просмотреть статью ее сначала нужно написать.</p>
+    {% endif %}
+{% endblock %}

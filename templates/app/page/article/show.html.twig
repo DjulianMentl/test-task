@@ -1,0 +1,21 @@
+{% extends 'app/base.html.twig' %}
+
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block body %}
+    <h1>{{ article.title }}</h1>
+
+    <p><strong>Описание:</strong></p>
+    <p>{{ article.description }}</p>
+
+    <p><strong>Просмотров:</strong> {{ article.views }}</p>
+    <p><strong>Дата создания:</strong> {{ article.createdAt|date('d.m.Y H:i') }}</p>
+
+    {% if article.isActive %}
+        <p><strong>Статья активна</strong></p>
+    {% else %}
+        <p><strong>Статья не активна</strong></p>
+    {% endif %}
+
+    <a href="{{ path('app_article_main') }}">Назад к списку статей</a>
+{% endblock %}
